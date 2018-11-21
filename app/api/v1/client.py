@@ -3,7 +3,7 @@
 """
 __author__ = '陈东东'
 
-from flask import request, jsonify
+from flask import request
 from app.libs.redprint import Redprint
 from app.validators.forms import ClientForm, UserEmailForm
 from app.models.user import User

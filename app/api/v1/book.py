@@ -9,12 +9,12 @@ __author__ = '陈东东'
 api = Redprint('book')
 
 
-@api.route('', methods=['GET'])
+@api.route('/getBook', methods=['GET'])
 def get_book():
     return 'get book'
 
 
-@api.route('', methods=['POST'])
+@api.route('/createBook', methods=['POST'])
 def create_book():
     return 'create book'
 

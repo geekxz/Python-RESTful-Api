@@ -9,6 +9,6 @@ __author__ = '陈东东'
 api = Redprint('user')
 
 
-@api.route('/get')
+@api.route('/getUser', methods=['GET'])
 def get_user():
     return 'get user'

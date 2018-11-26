@@ -3,16 +3,17 @@
 """
 __author__ = '陈东东'
 
-from wtforms import Form, StringField, IntegerField
-from wtforms.validators import DataRequired, length, Email, Regexp
-from app.libs.enums import ClientTypeEnum
-
+from wtforms import StringField, IntegerField
 from wtforms import ValidationError
+from wtforms.validators import DataRequired, length, Email, Regexp
+
+from app.libs.enums import ClientTypeEnum
+from app.validators.base import BaseFrom as Form
 from app.models.user import User
 
 
 class ClientForm(Form):
-    account = StringField(validators=[DataRequired(), length(min=5, max=32)])
+    account = StringField(validators=[DataRequired(message='不允许为空'), length(min=5, max=32)])
     secret = StringField()
     type = IntegerField(validators=[DataRequired()])
 

@@ -3,7 +3,7 @@
 """
 __author__ = '陈东东'
 
-from sqlalchemy import  Column, Integer, String, SmallInteger
+from sqlalchemy import Column, Integer, String, SmallInteger
 from werkzeug.security import generate_password_hash
 
 from app.models.base import Base, db

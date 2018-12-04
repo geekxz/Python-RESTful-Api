@@ -11,6 +11,7 @@ from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy as _SQLAlchemy, BaseQuery
 from sqlalchemy import inspect, Column, Integer, SmallInteger, orm
 from contextlib import contextmanager
+from app.libs.error_code import NotFound
 
 
 class SQLAlchemy(_SQLAlchemy):

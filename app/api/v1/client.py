@@ -23,6 +23,11 @@ def create_client():
         ClientTypeEnum.USER_EMALL: __register_user_by_email
     }
     promise[form.type.data]()
+
+    # 我们可以预知已知的异常 APIException
+    # 我们没法预知未知的异常
+
+    # AOP 出口处理未知异常
     return Success()
 
 

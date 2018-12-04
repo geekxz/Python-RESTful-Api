@@ -14,6 +14,12 @@ class Success(APIException):
     error_code = 0
 
 
+class ServerError(APIException):
+    code = 500
+    msg = 'sorry, we made a mistake (*￣︶￣)!'
+    error_code = 999
+
+
 class ClientTypeError(APIException):
     # 400 401 403 404
     # 500
@@ -24,6 +30,7 @@ class ClientTypeError(APIException):
     error_code = 1006
 
 
+# 参数错误
 class ParamException(APIException):
     # 400 401 403 404
     # 500
@@ -32,3 +39,18 @@ class ParamException(APIException):
     code = 400
     msg = 'invalid parameter'
     error_code = 1000
+
+
+# 用户不存在
+class NotFound(APIException):
+    code = 404
+    msg = 'the resource are not found O__O...'
+    error_code = 1001
+
+
+# 授权失败
+class AuthFailed(APIException):
+    code = 401
+    error_code = 1005
+    msg = 'authorization failed'
+

@@ -9,17 +9,25 @@ from app.libs.error import APIException
 
 
 class Success(APIException):
-    code = 200
+    code = 201
     msg = 'ok'
     error_code = 0
 
 
+# 删除成功
+class DeleteSuccess(Success):
+    code = 202
+    error_code = 1
+
+
+# 服务器错误
 class ServerError(APIException):
     code = 500
     msg = 'sorry, we made a mistake (*￣︶￣)!'
     error_code = 999
 
 
+# 客户端错误
 class ClientTypeError(APIException):
     # 400 401 403 404
     # 500
@@ -53,4 +61,11 @@ class AuthFailed(APIException):
     code = 401
     error_code = 1005
     msg = 'authorization failed'
+
+
+#   权限不够
+class Forbidden(APIException):
+    code = 403
+    error_code = 1004
+    msg = 'forbidden, not in scope'
 

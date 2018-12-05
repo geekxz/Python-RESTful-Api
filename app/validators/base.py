@@ -11,8 +11,9 @@ from app.libs.error_code import ParamException
 
 class BaseFrom(Form):
     def __init__(self):
-        data = request.json
-        super(BaseFrom, self).__init__(data=data)
+        data = request.get_json(silent=True)
+        args = request.args.to_dict()
+        super(BaseFrom, self).__init__(data=data, **args)
 
     def validate_for_api(self):
         valid = super(BaseFrom, self).validate()

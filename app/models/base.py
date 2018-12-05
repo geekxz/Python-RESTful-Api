@@ -7,7 +7,6 @@ __author__ = '陈东东'
 
 
 from datetime import datetime
-
 from flask_sqlalchemy import SQLAlchemy as _SQLAlchemy, BaseQuery
 from sqlalchemy import inspect, Column, Integer, SmallInteger, orm
 from contextlib import contextmanager

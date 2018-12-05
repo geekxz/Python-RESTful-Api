@@ -41,3 +41,7 @@ class UserEmailForm(ClientForm):
         if User.query.filter_by(email=value.data).first():
             raise ValidationError()
 
+
+class ArticleSearchForm(ClientForm):
+    q = StringField(validators=[DataRequired()])
+

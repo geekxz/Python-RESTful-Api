@@ -42,6 +42,10 @@ class UserEmailForm(ClientForm):
             raise ValidationError()
 
 
+class TokenForm(Form):
+    token = StringField(validators=[DataRequired()])
+
+
 class ArticleSearchForm(ClientForm):
     q = StringField(validators=[DataRequired()])
 

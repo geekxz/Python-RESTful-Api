@@ -4,6 +4,7 @@ Python Flask构建可扩展的RESTdul API
 
 ### 目录结构
 
+```
 
 ├─app 框架系统目录	
 │  ├─api       		核心接口目录
@@ -25,3 +26,5 @@ Python Flask构建可扩展的RESTdul API
 ├─Pipfile.lock
 ├─README.md
 │
+
+```

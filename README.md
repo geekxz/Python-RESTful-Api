@@ -10,12 +10,12 @@ Python Flask构建可扩展的RESTdul API
 │  ├─api       		核心接口目录
 │  ├─config         核心配置目录 
 │  ├─libs     		框架类库目录
-│  │  ├─enums.py     	
-│  │  ├─error.py  	
-│  │  ├─error_code.py     	
-│  │  ├─redprint.py 
-│  │  ├─scope.py     	
-│  │  ├─token_auth.py    	
+│  │  ├─enums.py     	客户端类型标识
+│  │  ├─error.py  		API错误返回类
+│  │  ├─error_code.py   错误状态码类  	
+│  │  ├─redprint.py 	自定义红图
+│  │  ├─scope.py     	权限管理类
+│  │  ├─token_auth.py   Token验证
 │  │  ├─ ...      	更多类库目录
 │  ├─models         框架应用模式目录
 │  ├─validators     表单验证器目录

@@ -91,7 +91,7 @@ Python Flask构建可扩展的RESTdul API
 	    article.api.register(bp_v1)
 	```
 
-### 权限设置管理
+### 权限设置管理  : 基于 flask_httpauth 中 HTTPBasicAuth做token用户权限验证 
 
 Scope.py
 

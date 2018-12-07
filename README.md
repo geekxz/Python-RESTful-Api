@@ -31,15 +31,15 @@ Python Flask构建可扩展的RESTdul API
 
 ### 接口编写步骤
 
-1. ``app/api/v1/``目录下建立资源:
+##### 1. ``app/api/v1/``目录下建立资源:
 
 	例如想建立一个关于文章的api,在``app/api/v1/``目录下建立``article.py``
 
-2. ``app/models/``目录下建立对应的操作模型``article.py``
+##### 2. ``app/models/``目录下建立对应的操作模型``article.py``
 
-3. ``app/validators/forms.py ``建立表单验证器类``ArticleSearchForm()继承ClientForm``
+##### 3. ``app/validators/forms.py ``建立表单验证器类``ArticleSearchForm()继承ClientForm``
 
-4. 编写接口业务``app/api/v1/article.py``
+##### 4. 编写接口业务``app/api/v1/article.py``
 	
 	导入所需类库:
 	```py
@@ -52,11 +52,11 @@ Python Flask构建可扩展的RESTdul API
 	```
 
 	
-	# Redprint 调用自定义红图
+	'''Redprint 调用自定义红图''' 
 	api = Redprint('article')
 
 
-	# 文章搜索
+	'''文章搜索'''
 	@api.route('/search', methods=['POST'])
 	def search():
 	    # url:http://localhost:5000/v1/article/search?q={}
@@ -68,33 +68,34 @@ Python Flask构建可扩展的RESTdul API
 	        or_(Article.title.like(q), Article.content.like(q))).all()
 	    articles = [article.hide('content', 'id').append('view') for article in articles]
 	    return jsonify(articles)
+	```
 
-5.最后把自定义的红图注册到蓝图上:
+##### 5.最后把自定义的红图注册到蓝图上:
 
-```py
+	```py
 
-from flask import Blueprint
-from app.api.v1 import user, article, client, token
+	from flask import Blueprint
+	from app.api.v1 import user, article, client, token
 
-def create_blueprint_v1():
-    # from app.api.v1.book import api
-    # from app.api.v1.user import api
-    bp_v1 = Blueprint('v1', __name__)
+	def create_blueprint_v1():
+	    # from app.api.v1.book import api
+	    # from app.api.v1.user import api
+	    bp_v1 = Blueprint('v1', __name__)
 
-    user.api.register(bp_v1)
-    client.api.register(bp_v1)
-    token.api.register(bp_v1)
-    return bp_v1
+	    user.api.register(bp_v1)
+	    client.api.register(bp_v1)
+	    token.api.register(bp_v1)
+	    return bp_v1
 
 
-    article.api.register(bp_v1)
-```
+	    article.api.register(bp_v1)
+	```
 
 ### 权限设置管理
 
 Scope.py
 
-##### 权限简介
+#### 权限简介
 
 权限管理主要文件libs/scope.py
 	
@@ -104,9 +105,9 @@ allow_api = []
 allow_module = []
 forbidden = []
 
-##### 具体用法:
+#### 具体用法:
 
-用法一:(使用allow_api,不建议使用,太繁琐)
+##### 用法一:(使用allow_api,不建议使用,太繁琐)
 
 ```py
 
@@ -160,7 +161,7 @@ def is_in_scope(scope, endpoint):
 
 ```
 
-用法二:(使用allow_module)
+##### 用法二:(使用allow_module)
 
 ```py
 
@@ -212,7 +213,7 @@ def is_in_scope(scope, endpoint):
     pass
 
 ```
-用法三:(使用allow_module)
+##### 用法三:(使用allow_module)
 
 ```py
 

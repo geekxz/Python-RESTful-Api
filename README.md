@@ -1,6 +1,5 @@
-# Python-RESTfulAPI
+# Python Flask1.0.x构建可扩展的RESTful API
 Python Flask构建可扩展的RESTdul API
-
 
 ### 目录结构
 
@@ -97,14 +96,14 @@ Scope.py
 
 #### 权限简介
 
-权限管理主要文件libs/scope.py
+权限管理主要文件``libs/scope.py``
 	
-主要为allow_api列表,allow_api允许访问的列表模块,forbidden禁止允许访问的列表模块.三种模式任选其一
-
+主要为``allow_api``列表,``allow_api``允许访问的列表模块,``forbidden``禁止允许访问的列表模块.三种模式任选其一
+```
 allow_api = []
 allow_module = []
 forbidden = []
-
+```
 #### 具体用法:
 
 ##### 用法一:(使用allow_api,不建议使用,太繁琐)
